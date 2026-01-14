@@ -35,6 +35,9 @@ export default function RootLayout({
             <Link href="/rtk.query" className="font-bold text-gray-600 hover:text-blue-600 transition">
               RTK Query
             </Link>
+             <Link href="/jotai" className="font-bold text-gray-600 hover:text-blue-600 transition">
+              Jotai
+            </Link>
           </nav>
           <main>
             {children}
