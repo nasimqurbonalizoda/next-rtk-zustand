@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ReduxProvider from "./components/provider";
+import Link from "next/link"; // 1. Импорт кардани Link
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +26,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ReduxProvider>
+          <nav className="flex justify-center gap-6 p-4 bg-white shadow-sm border-b">
+            <Link href="/zustand" className="font-bold text-gray-600 hover:text-blue-600 transition">
+              Zustand Todo
+            </Link>
+            <Link href="/rtk.query" className="font-bold text-gray-600 hover:text-blue-600 transition">
+              RTK Query
+            </Link>
+          </nav>
+          <main>
+            {children}
+          </main>
+        </ReduxProvider>
       </body>
     </html>
   );
